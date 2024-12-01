@@ -11,7 +11,6 @@ html {
 }
 
 body {
-  padding: 1em;
   font-family: Roboto; /* Change to your preferred font */
   font-size: 16px; /* 16px */
   line-height: 1.5;
@@ -123,6 +122,10 @@ a {
 
 .copy_btn {
   @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glass_btn {
+  @apply px-6 py-3 bg-secondary/80 text-primary-foreground font-semibold rounded-full shadow-[inset_5px_5px_6px_0px_rgba(0,_0,_0,_0.1)] hover:shadow-[5px_5px_6px_0px_rgba(0,_0,_0,_0.1)];
 }
 
 .blue_gradient {
