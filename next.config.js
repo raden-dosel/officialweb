@@ -5,7 +5,20 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ["lh3.googleusercontent.com", "placehold.co", "cdn.pixabay.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+      },
+    ],
   },
   webpack(config) {
     config.experiments = {
@@ -13,6 +26,14 @@ const nextConfig = {
       topLevelAwait: true,
     };
     return config;
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/upload_image",
+        destination: "http://localhost:8000/upload-image",
+      },
+    ];
   },
 };
 

@@ -1,0 +1,15 @@
+const long_sleeve_dress = [
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (1).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (2).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (3).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (4).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (5).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (6).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (7).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (8).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (9).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (10).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (11).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (12).gltf",
+  "/assets/model/long_sleeve_dress/long_sleeve_dress (13).gltf",
+];

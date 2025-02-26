@@ -11,55 +11,104 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
-const clothingPresets = [
-  { id: 1, name: "T-Shirt", thumbnail: "/assets/image/shirt561651.jpg" },
-  { id: 2, name: "Jacket", thumbnail: "/assets/image/jacket454564.jpg" },
-  { id: 4, name: "Polo Shirt", thumbnail: "/assets/image/shirt35156468.jpg" },
-  { id: 3, name: "Shorts", thumbnail: "/assets/image/shorts12315.jpg" },
-  { id: 5, name: "Shorts", thumbnail: "/assets/image/shorts5465.jpg" },
-  { id: 6, name: "Dress", thumbnail: "/assets/image/dress4546886.jpg" },
-];
+import { useDressTypeStore } from "@store/dress-type-store";
+import { useUpperMenTypeStore } from "@store/upper-men-store";
+import { useLowerMenTypeStore } from "@store/lower-men-store";
 
 const ClothingPresets = () => {
-  const [selectedPreset, setSelectedPreset] = useState(clothingPresets[0]);
+  const { currentTypeIndex, dressType, switchType } = useDressTypeStore();
+  const { currentUpperMenTypeIndex, upperMenType, switchUpperMenType } =
+    useUpperMenTypeStore();
+  const { currentLowerMenTypeIndex, lowerMenType, switchLowerMenType } =
+    useLowerMenTypeStore();
+
   return (
-    <div className="bg-white rounded-2xl shadow-md border border-zinc-200 p-6">
+    <div className="bg-white space-y-2 rounded-2xl shadow-md border border-zinc-200 p-6">
       <div className="flex items-center space-x-3 mb-4">
         <Layers className="text-blue-500" size={24} />
         <h3 className="text-xl font-semibold text-zinc-800">
           Clothing Presets
         </h3>
+        <p>Toggle Switch</p>
       </div>
-      <div className="grid grid-cols-3 gap-4">
-        {clothingPresets.map((preset) => (
+      <h3 className="text-xl font-semibold text-zinc-800">Upper</h3>
+      <p>{currentUpperMenTypeIndex}</p>
+      <div className=" flex flex-row -col gap-4 mx-2">
+        {upperMenType.map((index, type) => (
           <button
-            key={preset.id}
-            onClick={() => setSelectedPreset(preset)}
+            key={index}
+            onClick={() => switchUpperMenType(index)}
             className={`
+          py-2
           relative 
-          aspect-square 
           rounded-lg 
           overflow-hidden 
-          border-2 
-          ${
-            selectedPreset.id === preset.id
-              ? "border-blue-500"
-              : "border-transparent hover:border-zinc-300"
-          }
+           border-zinc-300
+          border-[.5px] 
+         active:scale-95
+          active:bg-blue-500/20
+          hover:bg-blue-500/10
+          hover:scale-105
           transition-all
         `}
           >
-            <Image
-              src={preset.thumbnail}
-              alt={preset.name}
-              fill
-              className="object-cover"
-            />
-            {selectedPreset.id === preset.id && (
-              <div className="absolute inset-0 bg-blue-500/20 flex items-center justify-center">
-                <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-              </div>
-            )}
+            <p className="text-sm">
+              <span>{upperMenType[type]}</span>
+            </p>
+          </button>
+        ))}
+      </div>
+      <h3 className="text-xl font-semibold text-zinc-800">Lower</h3>
+      <p>{currentLowerMenTypeIndex}</p>
+      <div className=" flex flex-row -col gap-4 mx-2">
+        {lowerMenType.map((index, type) => (
+          <button
+            key={index}
+            onClick={() => switchLowerMenType(index)}
+            className={`
+          py-2
+          relative 
+          rounded-lg 
+          overflow-hidden 
+           border-zinc-300
+          border-[.5px] 
+         active:scale-95
+          active:bg-blue-500/20
+          hover:bg-blue-500/10
+          hover:scale-105
+          transition-all
+        `}
+          >
+            <p className="text-sm">
+              <span>{lowerMenType[type]}</span>
+            </p>
+          </button>
+        ))}
+      </div>
+      <h3 className="text-xl font-semibold text-zinc-800">Dress</h3>
+      <p>{currentTypeIndex}</p>
+      <div className=" flex flex-row -col gap-4 mx-2">
+        {dressType.map((index, type) => (
+          <button
+            key={index}
+            onClick={() => switchType(index)}
+            className={`
+          py-2
+          relative 
+          rounded-lg 
+          overflow-hidden 
+           border-zinc-300
+          border-[.5px] 
+         active:scale-95
+          active:bg-blue-500/20
+          hover:bg-blue-500/10
+          hover:scale-105
+          transition-all
+        `}
+          >
+            <p className="text-sm">
+              <span>{dressType[type]}</span>
+            </p>
           </button>
         ))}
       </div>

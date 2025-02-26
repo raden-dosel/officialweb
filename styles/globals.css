@@ -144,25 +144,111 @@ a {
   @apply bg-gradient-to-r from-rose-700 to-pink-600 bg-clip-text text-transparent;
 }
 
+/* styles.css */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.color-swatch {
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.05);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 80vw;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.swatch-container {
+  position: relative;
+  width: 120px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-display {
+  width: 100%;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-display:hover {
+  transform: scale(1.05);
+}
+
+.replace-button {
+  width: 100%;
+  padding: 4px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.replace-button:hover {
+  background: #e0e0e0;
+  border-color: #ccc;
+}
+
+
 @layer base {
   :root {
-    --background: 40 100% 97%;
-    --foreground: 195 12% 13%;
-    --card: 0 0% 96%;
+    --background: 0 0% 98%;
+    --foreground: 334 10% 12%;
+    --card: 0 0% 100%;
     --card-foreground: 195 12% 13%;
-    --popover: 0 0% 96%;
-    --popover-foreground: 195 12% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 334 10% 12%;
     --primary: 334 46% 49%;
     --primary-foreground: 0 0% 98%;
     --secondary: 339, 13%, 29%;
     --secondary-foreground: 195 12% 13%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 334 5% 96%;
+    --muted-foreground: 334 4% 45%;
     --accent: 42, 51%, 51%;
     --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 12% 13%;
+    --border: 334 6% 90%;
     --input: 240 5.9% 90%;
     --ring: 195 12% 13%;
     --chart-1: 12 76% 61%;
@@ -173,23 +259,23 @@ a {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 240, 6%, 10%;
-    --foreground: 0, 0%, 96%;
-    --card: 300, 2%, 33%;
-    --card-foreground: 0, 0%, 96%;
-    --popover: 300, 2%, 33%;
-    --popover-foreground: 0, 0%, 96%;
+    --background: 334 25% 9%; 
+    --foreground: 334 6% 95%;    
+    --card: 334 25% 11%;
+    --card-foreground: 334 6% 95%;
+    --popover: 334 25% 11%;
+    --popover-foreground: 334 6% 95%;
     --primary: 334, 46%, 49%;
     --primary-foreground: 0, 0%, 96%;
     --secondary: 339, 13%, 29%;
     --secondary-foreground: 0, 0%, 96%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 334 15% 15%;
+    --muted-foreground: 334 5% 65%;
     --accent: 42, 51%, 51%;
     --accent-foreground: 0, 0%, 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0, 0%, 96%;
-    --border: 0, 0%, 96%;
+    --border: 334 20% 18%;
     --input: 0, 0%, 96%;
     --ring: 0, 0%, 96%;
     --chart-1: 220 70% 50%;
@@ -197,6 +283,26 @@ a {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-slideIn {
+    animation: slideIn 0.5s ease-out;
   }
 }
 

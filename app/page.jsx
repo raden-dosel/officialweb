@@ -1,9 +1,12 @@
-import CanvasModel from "@components/model_canvas";
+
 import Features from "@components/home/Features";
 import Footer from "@components/home/Footer";
 import Hero from "@components/home/Hero";
 
 import React from "react";
+import SCADisplay from "@components/home/SCADisplay";
+import Slideshow from "@components/home/SlideShow";
+
 
 const Home = () => {
   return (
@@ -12,9 +15,13 @@ const Home = () => {
       <Hero />
       {/* Features Section */}
       <Features />
+    
+      <SCADisplay/>
 
       {/* Call-to-Action Section */}
       <Footer />
+
+      
     </div>
   );
 };

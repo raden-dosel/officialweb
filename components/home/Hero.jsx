@@ -10,22 +10,27 @@ import {
   PanelRightOpen,
   Zap,
 } from "lucide-react";
+import Slideshow from "./SlideShow";
 
 const Hero = () => {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
 
   const getStarted = () => {
-    router.push("/cloth");
+    router.push("/guidelines");
   };
+
+  const navToInformation = () => {
+    router.push("/information");
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-pink-200 to-purple-50 flex items-center justify-center px-4 py-4">
-      <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
         {/* Content Section */}
         <div className="space-y-6 md:pr-12">
           <div className="inline-flex items-center space-x-3 bg-white shadow-md rounded-full px-4 py-2">
-            <Sparkles className="text-purple-500" size={20} />
+            <Sparkles className="text-pink-500" size={20} />
             <span className="text-sm font-medium text-zinc-700">
               AI-Powered Virtual Try-On
             </span>
@@ -79,23 +84,20 @@ const Hero = () => {
                 transition-all 
                 duration-300
               "
+              onClick={navToInformation}
             >
               Learn More
+
+             
             </button>
           </div>
         </div>
 
         {/* Image Section */}
         <div className="relative hidden md:block">
-          <div className="absolute -top-12 -left-12 z-0 w-64 h-64 bg-pink-500 rounded-full blur-2xl opacity-50"></div>
+          <div className="absolute -top-0 -left-12 z-0 w-64 h-64 bg-pink-500 rounded-full blur-2xl opacity-50"></div>
           <div className="flex justify-center relative z-10 ">
-            <Image
-              alt="Virtual Try-On Model"
-              width={300}
-              height={400}
-              src="/assets/image/model.jpg"
-              className="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
-            />
+          <Slideshow />
           </div>
           <div className="absolute bottom-12 -right-12 z-0 w-48 h-48 bg-pink-500 rounded-full blur-2xl opacity-50"></div>
         </div>
